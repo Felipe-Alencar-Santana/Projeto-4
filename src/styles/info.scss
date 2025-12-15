@@ -1,0 +1,51 @@
+@use 'variavel';
+@use 'sass:color';
+
+.info{
+    padding: 2vw 5.6vw;
+    
+    h2{
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    &__list {
+        margin-top: 44px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+        padding: 0;
+
+        
+
+        @media (max-width: variavel.$tablet) {
+            grid-template-columns: 1fr;
+        }
+
+        @media (max-width: variavel.$mobile) {
+
+            &__item{
+                min-height: auto;
+            }
+        }
+
+        &__item{
+            display: flex;
+            flex-direction: column;
+            background-color: color.adjust(variavel.$corDeFundo, $lightness: 4%);
+            padding: 16px;
+            border-radius: 8px;
+            overflow: hidden;
+            min-height: 320px;
+
+            img{
+                max-width: 100%;
+                height: auto;
+                border-radius: 6px;
+                display: block;
+                margin-bottom: 12px;
+                object-fit: cover;
+            }
+        }
+    }
+}

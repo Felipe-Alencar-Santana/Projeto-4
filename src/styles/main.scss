@@ -1,0 +1,128 @@
+@use 'variavel';
+@use 'header';
+@use 'hero';
+@use 'sobre';
+@use 'info';
+@use 'assistir';
+@use 'faq';
+@use 'footer';
+@use 'sass:color';
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    list-style: none;
+}
+
+@mixin text($fontSize: 16px){
+    font-size: $fontSize;
+    line-height: ($fontSize + 10px);
+    color: variavel.$corTextoPrincipal;
+}
+
+@mixin title($fontSize: 40px){
+    @include text($fontSize);
+    color: variavel.$corTextoSecundario;
+}
+
+.title--big{
+    @include title(44px);
+    
+        @media (max-width: variavel.$mobile) {
+            @include title(26px);
+        }
+}
+
+.title{
+    @include title;
+    
+        @media (max-width: variavel.$mobile) {
+            @include title(24px);
+        }
+}
+
+.title--small{
+    @include title(28px);
+    
+        @media (max-width: variavel.$mobile) {
+            @include title(22px);
+        }
+}
+
+.text--big{
+    @include text(18px);
+    
+        @media (max-width: variavel.$mobile) {
+            @include text(15px);
+        }
+}
+
+.text{
+    @include text;
+    
+        @media (max-width: variavel.$mobile) {
+            @include text(14px);
+        }
+}
+
+.text--small{
+    @include text(12px);
+    
+        @media (max-width: variavel.$mobile) {
+            @include text(11px);
+        }
+}
+
+.link-text{
+    @include text(18px);
+    color: variavel.$corTextoSecundario;
+    text-decoration: underline;
+}
+
+body {
+    background-color: variavel.$corDeFundo;
+}
+
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 60px;
+    font-size: 18px;
+    color: variavel.$corTextoSecundario;
+    background-color: variavel.$corDeFundoBotaoPrimario;
+    text-transform: uppercase;
+    border-radius: 4px;
+    text-decoration: none;
+    padding: 8px 14px;
+    letter-spacing: 1px;
+    border: 1px solid variavel.$corDeFundoBotaoPrimario;
+    cursor: pointer;
+
+    
+        &:hover{
+            background-color: color.adjust(variavel.$corDeFundoBotaoPrimario, $lightness: 3%);
+        }
+
+    &--secondary {
+        background-color: variavel.$corDeFundoBotaoSecundario;
+        border-color: variavel.$corTextoSecundario;
+
+        &:hover{
+            background-color: color.adjust(variavel.$corDeFundoBotaoSecundario, $lightness: 3%);
+        }
+    }
+
+    &--dark{
+        background-color: rgba(variavel.$corDeFundoBotaoDark, 0.8);
+        border-color: variavel.$corTextoSecundario;
+
+        &:hover{
+            background-color: variavel.$corDeFundoBotaoDark;
+            color: variavel.$corDeFundo;
+        }
+    }
+}

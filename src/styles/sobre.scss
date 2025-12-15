@@ -1,0 +1,27 @@
+@use 'variavel';
+
+.sobre{
+    padding: 5.6vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 30px;
+
+    
+    @media (max-width: variavel.$mobile) {
+        display: block;
+    }
+
+    img{
+        max-width: 100%;
+        border-radius: 10px;
+    }
+
+    h2{
+        margin-bottom: 10px;
+    }
+
+    p{
+        margin-bottom: 24px;
+    }
+}
